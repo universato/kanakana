@@ -13,3 +13,5 @@
 Gemfile.lock
 
 .travis.yml
+
+personal_memo.md

@@ -1,0 +1,26 @@
+Layout/ExtraSpacing:
+  Exclude:
+    - '*.gemspec'
+Style/AsciiComments:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - 'bin/console'
+    - 'lib/**/version.rb'
+    - 'spec/spec_helper.rb'
+    - 'Gemfile'
+    - 'Rakefile'
+    - '*.gemspec'
+Style/HashSyntax:
+  Exclude:
+    - 'Rakefile'
+Style/StringLiterals:
+  Exclude:
+    - 'lib/**/version.rb'
+    - 'spec/spec_helper.rb'
+Style/MutableConstant:
+  Exclude:
+    - 'lib/**/version.rb'
+Style/RedundantPercentQ:
+  Exclude:
+    - '*.gemspec'
