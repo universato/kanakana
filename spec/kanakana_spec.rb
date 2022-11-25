@@ -98,6 +98,7 @@ RSpec.describe Kanakana do
 
   it 'test unicodes' do
     expect(Kanakana.unicodes('𩸽')).to eq(['U+29E3D'])
+
     src = ['']
     dst = [[]]
 
@@ -110,6 +111,7 @@ RSpec.describe Kanakana do
 
   it 'escape' do
     expect(Kanakana.escape('𩸽')).to eq('\u29E3D')
+
     src = ['']
     dst = src.map(&:dup)
 
@@ -125,10 +127,10 @@ RSpec.describe Kanakana do
     dst = [{}]
 
     src << 'たちまち'
-    dst << { 'た' => '\u305F', 'ち' => '\u3061', 'ま' => '\u307E' }
+    dst << { 'た' => '\u{305F}', 'ち' => '\u{3061}', 'ま' => '\u{307E}' }
 
     src << '👨‍👩‍👧‍👦'
-    dst << { '👨' => '\u1F468', '‍' => '\u200D', '👩' => '\u1F469', '👧' => '\u1F467', '👦' => '\u1F466' }
+    dst << { '👨' => '\u{1F468}', '‍' => '\u{200D}', '👩' => '\u{1F469}', '👧' => '\u{1F467}', '👦' => '\u{1F466}' }
     src.zip(dst) do |src, dst|
       expect(Kanakana.table(src)).to eq(dst)
     end

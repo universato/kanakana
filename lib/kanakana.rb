@@ -5,6 +5,36 @@ require 'nkf'
 
 # Kanakana
 module Kanakana
+  # p ("ｱ".."ﾜ").map{ |c| NKF.nkf("-Ww --hiragana", c) }.push("を", "ん")
+  # 五十音
+  HIRAGANA = %w[
+    あ い う え お
+    か き く け こ
+    さ し す せ そ
+    た ち つ て と
+    な に ぬ ね の
+    は ひ ふ へ ほ
+    ま み む め も
+    や ゆ よ
+    ら り る れ ろ
+    わ を ん
+  ].freeze
+
+  KATAKANA = %w[
+    ア イ ウ エ オ
+    カ キ ク ケ コ
+    サ シ ス セ ソ
+    タ チ ツ テ ト
+    ナ ニ ヌ ネ ノ
+    ハ ヒ フ ヘ ホ
+    マ ミ ム メ モ
+    ヤ ユ ヨ
+    ラ リ ル レ ロ
+    ワ ヲ ン
+  ].freeze
+
+  # DAKUON_BY_HIRAGANA
+  # DAKUON_BY_SEION
   DAKUON_HIRAGANA = {
     'か' => 'が', 'き' => 'ぎ', 'く' => 'ぐ', 'け' => 'げ', 'こ' => 'ご',
     'さ' => 'ざ', 'し' => 'じ', 'す' => 'ず', 'せ' => 'ぜ', 'そ' => 'ぞ',
@@ -39,6 +69,7 @@ module Kanakana
     'ゃ' => 'や', 'ゅ' => 'ゆ', 'ょ' => 'よ',
     'ゎ' => 'わ'
   }.freeze
+
   KOGAKI_KATAKANA = {
     'ァ' => 'ア', 'ィ' => 'イ', 'ゥ' => 'ウ', 'ェ' => 'エ', 'ォ' => 'オ',
     'ヵ' => 'カ', 'ヶ' => 'ケ',
@@ -53,34 +84,6 @@ module Kanakana
     'ゐ' => 'い', 'ゑ' => 'え',
     'ヰ' => 'イ', 'ヱ' => 'エ', 'ヲ' => 'オ'
   }.freeze
-
-  # p ("ｱ".."ﾜ").map{ |c| NKF.nkf("-Ww --hiragana", c) }.push("を", "ん")
-  # 五十音
-  HIRAGANA = %w[
-    あ い う え お
-    か き く け こ
-    さ し す せ そ
-    た ち つ て と
-    な に ぬ ね の
-    は ひ ふ へ ほ
-    ま み む め も
-    や ゆ よ
-    ら り る れ ろ
-    わ を ん
-  ].freeze
-
-  KATAKANA = %w[
-    ア イ ウ エ オ
-    カ キ ク ケ コ
-    サ シ ス セ ソ
-    タ チ ツ テ ト
-    ナ ニ ヌ ネ ノ
-    ハ ヒ フ ヘ ホ
-    マ ミ ム メ モ
-    ヤ ユ ヨ
-    ラ リ ル レ ロ
-    ワ ヲ ン
-  ].freeze
 
   NOT_DAKUTENABLE_HIRAGANA = HIRAGANA - DAKUON_HIRAGANA.keys
   NOT_DAKUTENABLE_KATAKANA = KATAKANA - DAKUON_KATAKANA.keys
@@ -130,7 +133,7 @@ module Kanakana
 
     # charset
     def table(str)
-      str.chars.zip(str.codepoints.map { |c| "\\u#{c.to_s(16).upcase}" }).to_h
+      str.chars.zip(str.codepoints.map { |c| "\\u{#{c.to_s(16).upcase}}" }).to_h
     end
   end
 end

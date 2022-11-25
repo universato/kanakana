@@ -6,8 +6,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["universato"]
   spec.email         = ["universato@gmail.com"]
 
-  spec.summary       = %q{日本語の変換サポート(Converter for Japanese language)}
-  spec.description   = %q{日本語(特に仮名、ひらがな、カタカナ)の変換をサポートします。}
+  spec.summary       = "日本語の変換サポート(Converter for Japanese language)"
+  spec.description   = "日本語(特に仮名、ひらがな、カタカナ)の変換をサポートします。"
   spec.homepage      = "https://github.com/universato/kanakana"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
