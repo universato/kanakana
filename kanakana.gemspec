@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.description   = "日本語(特に仮名、ひらがな、カタカナ)の変換をサポートします。"
   spec.homepage      = "https://github.com/universato/kanakana"
   spec.license       = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.7")
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
