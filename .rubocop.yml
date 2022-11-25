@@ -15,7 +15,7 @@ Lint/ShadowingOuterLocalVariable:
 
 Layout/SpaceAroundOperators:
   Exclude:
-    - 'kanakana.gemspec'
+    - '*.gemspec'
 
 Metrics:
   Enabled: false
@@ -30,13 +30,8 @@ Style/HashSyntax:
   Exclude:
     - 'Rakefile'
 
-Style/StringLiterals:
+Style/MutableConstant:
   Enabled: false
 
-Style/MutableConstant:
-  Exclude:
-    - 'lib/**/version.rb'
-
-Style/RedundantPercentQ:
-  Exclude:
-    - '*.gemspec'
+Style/StringLiterals:
+  Enabled: false
